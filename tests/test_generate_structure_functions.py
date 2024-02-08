@@ -72,8 +72,8 @@ from oceans_sf.generate_structure_functions import generate_structure_functions
                         -13824000,
                     ]
                 ),
-                "x-diffs": np.linspace(0, 8, 9),
-                "y-diffs": np.linspace(0, 8, 9),
+                "x_diff": np.linspace(0, 8, 9),
+                "y_diff": np.linspace(0, 8, 9),
             },  # expected_dict
         ),
         # Test 2: all with Periodic boundary and uniform grid
@@ -112,8 +112,8 @@ from oceans_sf.generate_structure_functions import generate_structure_functions
                 "SF_traditional_scalar_meridional": np.array(
                     [0, 1944000, 2592000, 2268000, 1296000]
                 ),
-                "x-diffs": np.linspace(0, 4, 5),
-                "y-diffs": np.linspace(0, 4, 5),
+                "x_diff": np.linspace(0, 4, 5),
+                "y_diff": np.linspace(0, 4, 5),
             },  # expected_dict
         ),
         # Test 3: all with no boundary and latlon grid
@@ -180,7 +180,7 @@ from oceans_sf.generate_structure_functions import generate_structure_functions
                         -13824000,
                     ]
                 ),
-                "x-diffs": np.array(
+                "x_diff": np.array(
                     [
                         0.0,
                         111195.08372419,
@@ -193,7 +193,7 @@ from oceans_sf.generate_structure_functions import generate_structure_functions
                         889560.66979353,
                     ]
                 ),
-                "y-diffs": np.array(
+                "y_diff": np.array(
                     [
                         0.0,
                         111127.34496561,
@@ -244,7 +244,7 @@ from oceans_sf.generate_structure_functions import generate_structure_functions
                 "SF_traditional_scalar_meridional": np.array(
                     [0, 1944000, 2592000, 2268000, 1296000]
                 ),
-                "x-diffs": np.array(
+                "x_diff": np.array(
                     [
                         0.0,
                         111195.08372419,
@@ -253,7 +253,7 @@ from oceans_sf.generate_structure_functions import generate_structure_functions
                         444780.33489677,
                     ]
                 ),
-                "y-diffs": np.array(
+                "y_diff": np.array(
                     [
                         0.0,
                         111127.34496561,
@@ -300,8 +300,8 @@ from oceans_sf.generate_structure_functions import generate_structure_functions
                         -9639000,
                     ]
                 ),
-                "x-diffs": np.array([1, 4, 7]),
-                "y-diffs": np.array([1, 4, 7]),
+                "x_diff": np.array([1, 4, 7]),
+                "y_diff": np.array([1, 4, 7]),
             },  # expected_dict
         ),
         # Test 5: all with no boundary and latlon grid and binning
@@ -340,10 +340,10 @@ from oceans_sf.generate_structure_functions import generate_structure_functions
                         -9639000,
                     ]
                 ),
-                "x-diffs": np.array(
+                "x_diff": np.array(
                     [111195.08372419, 444780.33489677, 778365.58606934]
                 ),
-                "y-diffs": np.array(
+                "y_diff": np.array(
                     [111070.90117717, 442929.13516805, 770521.83529407]
                 ),
             },  # expected_dict

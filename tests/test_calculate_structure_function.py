@@ -24,10 +24,10 @@ from oceans_sf.calculate_structure_function import calculate_structure_function
             0,  # traditional_order
             "Periodic",  # boundary
             {
-                "SF_velocity_right": 88,
-                "SF_velocity_down": 138,
-                "SF_scalar_right": 5,
-                "SF_scalar_down": 8,
+                "SF_adv_velocity_right": 88,
+                "SF_adv_velocity_down": 138,
+                "SF_adv_scaler_right": 5,
+                "SF_adv_scaler_down": 8,
             },
             # expected_result
         ),
@@ -45,13 +45,13 @@ from oceans_sf.calculate_structure_function import calculate_structure_function
             2,
             "Periodic",
             {
-                "SF_velocity_right": 88,
+                "SF_adv_velocity_right": 88,
                 "SF_trad_velocity_right": 1,
-                "SF_scalar_right": 5,
+                "SF_adv_scaler_right": 5,
                 "SF_trad_scalar_right": 1,
-                "SF_velocity_down": 138,
+                "SF_adv_velocity_down": 138,
                 "SF_trad_velocity_down": 4,
-                "SF_scalar_down": 8,
+                "SF_adv_scaler_down": 8,
                 "SF_trad_scalar_down": 4,
             },
         ),
@@ -69,8 +69,8 @@ from oceans_sf.calculate_structure_function import calculate_structure_function
             0,
             "Periodic",
             {
-                "SF_scalar_right": 5,
-                "SF_scalar_down": 8,
+                "SF_adv_scaler_right": 5,
+                "SF_adv_scaler_down": 8,
             },
         ),
         # Test 4: velocities with no scalar or traditional
@@ -87,8 +87,8 @@ from oceans_sf.calculate_structure_function import calculate_structure_function
             0,
             "Periodic",
             {
-                "SF_velocity_right": 88,
-                "SF_velocity_down": 138,
+                "SF_adv_velocity_right": 88,
+                "SF_adv_velocity_down": 138,
             },
         ),
         # Test 5: velocity and scalar no traditional non-periodic
@@ -105,10 +105,10 @@ from oceans_sf.calculate_structure_function import calculate_structure_function
             0,
             None,
             {
-                "SF_velocity_right": 88,
-                "SF_velocity_down": 138,
-                "SF_scalar_right": 5,
-                "SF_scalar_down": 8,
+                "SF_adv_velocity_right": 88,
+                "SF_adv_velocity_down": 138,
+                "SF_adv_scaler_right": 5,
+                "SF_adv_scaler_down": 8,
             },
         ),
         # Test 6: all non-periodic
@@ -125,13 +125,13 @@ from oceans_sf.calculate_structure_function import calculate_structure_function
             2,
             None,
             {
-                "SF_velocity_right": 88,
+                "SF_adv_velocity_right": 88,
                 "SF_trad_velocity_right": 1,
-                "SF_scalar_right": 5,
+                "SF_adv_scaler_right": 5,
                 "SF_trad_scalar_right": 1,
-                "SF_velocity_down": 138,
+                "SF_adv_velocity_down": 138,
                 "SF_trad_velocity_down": 4,
-                "SF_scalar_down": 8,
+                "SF_adv_scaler_down": 8,
                 "SF_trad_scalar_down": 4,
             },
         ),
@@ -149,8 +149,8 @@ from oceans_sf.calculate_structure_function import calculate_structure_function
             0,
             None,
             {
-                "SF_scalar_right": 5,
-                "SF_scalar_down": 8,
+                "SF_adv_scaler_right": 5,
+                "SF_adv_scaler_down": 8,
             },
         ),
         # Test 8: velocities with no scalar or traditional non-periodic
@@ -167,8 +167,8 @@ from oceans_sf.calculate_structure_function import calculate_structure_function
             0,
             None,
             {
-                "SF_velocity_right": 88,
-                "SF_velocity_down": 138,
+                "SF_adv_velocity_right": 88,
+                "SF_adv_velocity_down": 138,
             },
         ),
     ],

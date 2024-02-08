@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def calculate_advection(  # noqa: D417
+def calculate_gradients(  # noqa: D417
     u,
     v,
     x,
@@ -10,7 +10,6 @@ def calculate_advection(  # noqa: D417
     dy=None,
     grid_type="uniform",
     scalar=None,
-    gradients = False,
 ):
     """
     Calculate the advection for a velocity field or scalar field. The velocity field
@@ -37,8 +36,6 @@ def calculate_advection(  # noqa: D417
             The type of grid. Defaults to "uniform".
         scalar: ndarray, optional
             Array of scalar values. Defaults to None.
-        gradients: bool, optional
-            Flag used to calculate the gradients of the velocity field. Defaults to False.
 
     Returns
     -------
@@ -47,16 +44,15 @@ def calculate_advection(  # noqa: D417
             northward_advection) if scalar is not provided, otherwise returns an ndarray
             of scalar advection.
     """
-    # calculate the gradients depending on the grid type
     if grid_type == "latlon":
         xcoords = dx.cumsum()
         ycoords = dy.cumsum()
 
         if scalar is not None:
             dsdy, dsdx = np.gradient(scalar, xcoords, ycoords, axis=(0, 1))
-        #else:
-        dudy, dudx = np.gradient(u, xcoords, ycoords, axis=(0, 1))
-        dvdy, dvdx = np.gradient(v, xcoords, ycoords, axis=(0, 1))
+        else:
+            dudy, dudx = np.gradient(u, xcoords, ycoords, axis=(0, 1))
+            dvdy, dvdx = np.gradient(v, xcoords, ycoords, axis=(0, 1))
 
     else:
         dx = np.abs(x[0] - x[1])
@@ -64,26 +60,13 @@ def calculate_advection(  # noqa: D417
 
         if scalar is not None:
             dsdy, dsdx = np.gradient(scalar, dx, dy, axis=(0, 1))
-        #else:
-        dudy, dudx = np.gradient(u, dx, dy, axis=(0, 1))
-        dvdy, dvdx = np.gradient(v, dx, dy, axis=(0, 1))
-
-    # return the advection components
-    return_dict = {}
-    # if scalar is None:
-    return_dict['eastward']  = u * dudx + v * dudy
-    return_dict['northward'] = u * dvdx + v * dvdy
+        else:
+            dudy, dudx = np.gradient(u, dx, dy, axis=(0, 1))
+            dvdy, dvdx = np.gradient(v, dx, dy, axis=(0, 1))
 
     if scalar is not None:
-        return_dict['scalar'] = u * dsdx + v * dsdy
+        return {'dsdx': dsdx, 'dsdy': dsdy}
+    else:
+        return {'dudx': dudx, 'dudy': dudy, 'dvdx': dvdx, 'dvdy': dvdy}
 
-    if gradients:
-        return_dict['dudx'] = dudx
-        return_dict['dudy'] = dudy
-        return_dict['dvdx'] = dvdx
-        return_dict['dvdy'] = dvdy
-        if scalar is not None:
-            return_dict['dsdx'] = dsdx
-            return_dict['dsdy'] = dsdy
 
-    return return_dict
